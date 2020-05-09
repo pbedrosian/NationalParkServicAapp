@@ -1,0 +1,19 @@
+Visitor
+    - first name
+    - last name
+    - email 
+    - age
+    - city 
+    - state 
+
+Park
+    - name
+    - state
+    - city
+    - notes
+    - visit date (need to add column)
+    - visitor id 
+
+Visitor goes to (belongs_to) Parks
+
+Parks get visited by (has_many) Visitors

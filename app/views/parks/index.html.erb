@@ -1,0 +1,16 @@
+<h1>Visited Parks:</h1>
+<% if Park.all.empty? %>
+    <h4>Looks like you haven't visited any national parks.</h4>
+    <br>
+    <form action="/parks/new">
+        <input type="submit" value="Click to get started" >
+    </form>
+<% else %>
+    <% Park.all.each do |p| %>
+    <h3><%= p.name %></h3> 
+    <form action="/parks/<%=p.id%>">
+        <input type="submit" value="See Details" />
+    </form>
+    ---------------------------------------------------
+    <% end %>
+<% end %>
