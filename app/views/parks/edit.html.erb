@@ -34,7 +34,12 @@
 			<input id="state" value= "<%=@park.state%>" name="state" class="element text medium" type="text" maxlength="255" value=""/> 
 		</div> 
 		</li>		<li id="li_4" >
-		<label class="description" for="element_4">Notes: </label>
+		<label class="description" for="element_4">Date Visited - MM-DD-YYYY: </label>
+		<div>
+			<input id="date_visited" value= "<%=@park.date_visited%>" name="date_visited" class="element text medium" type="text" maxlength="255" value=""/> 
+		</div> 
+		</li>		<li id="li_5" >
+		<label class="description" for="element_5">Notes: </label>
 		<div>
 			<textarea id="notes" value= "<%=@park.notes%>" name="notes" class="element textarea medium"><%=@park.notes%></textarea> 
 		</div> 

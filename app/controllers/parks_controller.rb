@@ -12,7 +12,9 @@ class ParksController < ApplicationController
 
   #responds to the form and create a new instance and persists to database
   post '/parks' do
-    @park = Park.create(name: params[:park_name], city: params[:city], state: params[:state], notes: params[:notes])
+    binding.pry
+    @park = Park.create(name: params[:park_name], city: params[:city], state: params[:state], 
+    date_visited: params[:date_visited], notes: params[:notes])
     erb :'/parks/show.html'
   end
 
@@ -36,8 +38,11 @@ class ParksController < ApplicationController
   post '/parks/:id' do
     @park = Park.find(params[:id].to_i)
     # binding.pry
-    @park.update(name: params[:park_name], city: params[:city], state: params[:state], notes: params[:notes])
+    @park.update(name: params[:park_name], city: params[:city], state: params[:state], 
+    date_visited: params[:date_visited], notes: params[:notes])
+
     erb :"/parks/show.html"
+
   end
 
   # PATCH: /parks/5
