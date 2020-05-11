@@ -2,9 +2,7 @@
 <% if Park.all.empty? %>
     <h4>Looks like you haven't visited any national parks.</h4>
     <br>
-    <form action="/parks/new">
-        <input type="submit" value="Click to get started" >
-    </form>
+    <a href='/parks/new'><button>Click to get started</button></a>
 <% else %>
     <% Park.all.each do |p| %>
     <h3><%= p.name %></h3> 

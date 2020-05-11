@@ -12,7 +12,6 @@ class ParksController < ApplicationController
 
   #responds to the form and create a new instance and persists to database
   post '/parks' do
-    binding.pry
     @park = Park.create(name: params[:park_name], city: params[:city], state: params[:state], 
     date_visited: params[:date_visited], notes: params[:notes])
     erb :'/parks/show.html'
@@ -30,14 +29,12 @@ class ParksController < ApplicationController
 
   # retreives form to edit the park data (filled with previous data)
   get '/parks/:id/edit' do
-    # binding.pry
     @park = Park.select {|p| p.id == params[:id].to_i}.first
     erb :"/parks/edit.html"
   end
 
   post '/parks/:id' do
     @park = Park.find(params[:id].to_i)
-    # binding.pry
     @park.update(name: params[:park_name], city: params[:city], state: params[:state], 
     date_visited: params[:date_visited], notes: params[:notes])
 

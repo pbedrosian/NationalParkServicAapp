@@ -14,6 +14,10 @@
     <h3> Date Visited: <%=@park.date_visited %></h3>
     <br>
     <h4>Notes:</h4>
+    <br>
     <p> <%=@park.notes%> </p>
+    <br>
+    <br>
+    <a href='/parks/<%=@park.id%>/edit'><button>Edit Park Details</button></a>
 </body>
 </html>
