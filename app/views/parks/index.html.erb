@@ -6,8 +6,11 @@
 <% else %>
     <% Park.all.each do |p| %>
     <h3><%= p.name %></h3> 
-    <form action="/parks/<%=p.id%>">
-        <input type="submit" value="See Details" />
+    <a href='/parks/<%=p.id%>'><button>See Details</button></a> 
+    <br>
+    <form action="/parks/<%=p.id%>/delete" method="POST">
+        <input type="hidden" name="_method" id="hidden" value="DELETE">
+        <button type="submit" id="delete">Delete</button>
     </form>
     ---------------------------------------------------
     <% end %>

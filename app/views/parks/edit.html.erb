@@ -1,62 +1,34 @@
 <!DOCTYPE html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Park Details</title>
-<link rel="stylesheet" type="text/css" href="view.css" media="all">
-<script type="text/javascript" src="view.js"></script>
-
 </head>
 <body id="main_body" >
-	
-	<img id="top" src="top.png" alt="">
-	<div id="form_container">
-	
 		<h1><a>Park Details</a></h1>
-		<form id="form_109257" class="appnitro"  method="post" action="/parks/<%=@park.id%>">
-					<div class="form_description">
+		<form action="/parks/<%= @park.id %>" method="POST">
+  		<input type="hidden" name="_method" id="hidden" value="PATCH">
 			<p>Enter the data from the National Park:</p>
-		</div>						
-			<ul >
-			
-					<li id="li_1" >
-		<label class="description" for="element_1">Park Name: </label>
+		<label>Park Name: </label>
 		<div>
-			<input id="park_name" value= "<%=@park.name%>" name="park_name" class="element text medium" type="text" maxlength="255" value=""/> 
+			<input id="name" name="name" value="<%= @park.name %>" class="element text medium" type="text" maxlength="255" value=""/> 
 		</div> 
-		</li>		<li id="li_2" >
-		<label class="description" for="element_2">City: </label>
+		<label>City: </label>
 		<div>
-			<input id="city" value= "<%=@park.city%>" name="city" class="element text medium" type="text" maxlength="255" value=""/> 
+			<input id="city" name="city" value="<%= @park.city %>" class="element text medium" type="text" maxlength="255" value=""/> 
 		</div> 
-		</li>		<li id="li_3" >
-		<label class="description" for="element_3">State: </label>
+		<label>State: </label>
 		<div>
-			<input id="state" value= "<%=@park.state%>" name="state" class="element text medium" type="text" maxlength="255" value=""/> 
+			<input id="state" name="state" value="<%= @park.state %>" class="element text medium" type="text" maxlength="255" value=""/> 
 		</div> 
-		</li>		<li id="li_4" >
-		<label class="description" for="element_4">Date Visited - MM-DD-YYYY: </label>
+		<label>Date Visited - MM-DD-YYYY: </label>
 		<div>
-			<input id="date_visited" value= "<%=@park.date_visited%>" name="date_visited" class="element text medium" type="text" maxlength="255" value=""/> 
+			<input id="date_visited" name="date_visited" value="<%= @park.date_visited %>" class="element text medium" type="text" maxlength="255" value=""/> 
 		</div> 
-		</li>		<li id="li_5" >
-		<label class="description" for="element_5">Notes: </label>
+		<label>Notes: </label>
 		<div>
-			<textarea id="notes" value= "<%=@park.notes%>" name="notes" class="element textarea medium"><%=@park.notes%></textarea> 
-		</div> 
-		</li>
-			
-					<li class="buttons">
-			    <input type="hidden" name="form_id" value="109257" />
-			    <br>
-				<input id="saveForm" class="button_text" type="submit" name="submit" value="Update" />
-		</li>
-			</ul>
+			<textarea id="notes" name="notes" class="element textarea medium"><%= @park.notes %></textarea> 
+		<br>
+		<br>
+			<button type="submit" id="submit">Submit</button>
 		</form>	
-		<div id="footer">
-			
-		</div>
-	</div>
-    <img id="bottom" src="bottom.png" alt="">
-
 	</body>
 </html>

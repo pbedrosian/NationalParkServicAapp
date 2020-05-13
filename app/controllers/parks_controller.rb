@@ -1,7 +1,6 @@
 class ParksController < ApplicationController
 
   get '/parks' do
-    
     erb :"/parks/index.html"
   end
 
@@ -12,14 +11,10 @@ class ParksController < ApplicationController
 
   #responds to the form and create a new instance and persists to database
   post '/parks' do
-    @park = Park.create(name: params[:park_name], city: params[:city], state: params[:state], 
-    date_visited: params[:date_visited], notes: params[:notes])
-    erb :'/parks/show.html'
+    @park = Park.new(params)
+    @park.save
+    redirect to "/parks/#{@park.id}"
   end
-
-  # post "/parks" do
-  #   redirect "/parks"
-  # end
 
   # get request to retreive individual parks data
   get '/parks/:id' do
@@ -27,28 +22,26 @@ class ParksController < ApplicationController
     erb :"/parks/show.html"
   end
 
-  # retreives form to edit the park data (filled with previous data)
+    # retreives form to edit the park data (filled with previous data)
   get '/parks/:id/edit' do
     @park = Park.select {|p| p.id == params[:id].to_i}.first
     erb :"/parks/edit.html"
   end
 
-  post '/parks/:id' do
-    @park = Park.find(params[:id].to_i)
-    @park.update(name: params[:park_name], city: params[:city], state: params[:state], 
-    date_visited: params[:date_visited], notes: params[:notes])
-
-    erb :"/parks/show.html"
-
-  end
-
-  # PATCH: /parks/5
   patch "/parks/:id" do
-    redirect "/parks/:id"
+    @park = Park.find(params[:id])
+    @park.name = params[:name]
+    @park.city = params[:city]
+    @park.state = params[:state]
+    @park.notes = params[:notess]
+    @park.date_visited = params[:date_visited]
+    @park.save
+
+    redirect to "/parks/#{@park.id}"
   end
 
-  # DELETE: /parks/5/delete
   delete "/parks/:id/delete" do
+    Park.find(params[:id]).delete
     redirect "/parks"
   end
 end
