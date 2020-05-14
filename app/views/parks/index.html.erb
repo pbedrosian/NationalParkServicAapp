@@ -1,16 +1,16 @@
 <h1>Visited Parks:</h1>
-<% if Park.all.empty? %>
+<% if @parks.empty? %>
     <h4>Looks like you haven't visited any national parks.</h4>
     <br>
     <a href='/parks/new'><button>Click to get started</button></a>
 <% else %>
-    <% Park.all.each do |p| %>
+    <% @parks.each do |p| %>
     <h3><%= p.name %></h3> 
     <a href='/parks/<%=p.id%>'><button>See Details</button></a> 
     <br>
     <form action="/parks/<%=p.id%>/delete" method="POST">
         <input type="hidden" name="_method" id="hidden" value="DELETE">
-        <button type="submit" id="delete">Delete</button>
+        <input type='submit' value= 'Delete'>
     </form>
     ---------------------------------------------------
     <% end %>

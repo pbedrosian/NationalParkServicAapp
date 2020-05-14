@@ -5,7 +5,8 @@ class CreateParks < ActiveRecord::Migration
       t.string :city
       t.string :state
       t.string :notes
-      t.integer :visitor_id
+      t.string :date_visited
+      t.integer :user_id
       t.timestamps null: false
     end
   end
