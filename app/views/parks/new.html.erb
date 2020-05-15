@@ -1,14 +1,17 @@
 <!DOCTYPE html>
+<html>
 <head>
-<title>Park Details</title>
+    <link rel="stylesheet" href="/stylesheets/navigation.css">
 </head>
-<body id="main_body" >
+<body>
+<div class="topnav">
+  <a class="active" href="/parks">Home</a>
+  <a href="/parks/new">New Park</a>
+  <a href="/logout">Logout</a>
+</div>
 		<h1><a>Park Details</a></h1>
 		<form  method="post" action="/parks">
 			<p>Enter the data from the National Park:</p>
-		
-		<input type="hidden" name="user_id" value="<%= session[:user_id].to_i%>">
-
 		<label>Park Name: </label>
 		<div>
 			<input id="name" name="name" class="element text medium" type="text" maxlength="255" value=""/> 

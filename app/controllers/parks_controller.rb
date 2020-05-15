@@ -1,32 +1,40 @@
 class ParksController < ApplicationController
 
   get '/parks' do
-    @user = User.find_by(id: session[:user_id])
-    @parks = @user.parks.all
-    binding.pry
+    if Helpers.is_logged_in?(session)
+      @user = User.find_by(id: session[:user_id])
+      @parks = @user.parks.all
+    else
+      redirect '/failure'
+    end
     erb :"/parks/index.html"
   end
 
-  #brings users to form to create new park 
   get '/parks/new' do
-    erb :"/parks/new.html"
+    if Helpers.is_logged_in?(session)
+      erb :"/parks/new.html"
+    else
+      redirect '/failure'
+    end
   end
 
-  #responds to the form and create a new instance and persists to database
   post '/parks' do
-    binding.pry
-    @park = Park.new(params)
-    @park.save
-    redirect to "/parks/#{@park.id}"
+    user = Helpers.current_user(session)
+    park = user.parks.new(params)
+    park.save
+    redirect to "/parks/#{park.id}"
   end
 
-  # get request to retreive individual parks data
   get '/parks/:id' do
-    @park = Park.find_by(id: params[:id])
-    erb :"/parks/show.html"
+    park = Park.find_by(id: params[:id])
+    if !!park && park.user_id == session[:user_id]
+      @park = park
+      erb :"/parks/show.html"
+    else
+     erb :'/failures/locate_park_error.html' 
+    end
   end
 
-    # retreives form to edit the park data (filled with previous data)
   get '/parks/:id/edit' do
     @park = Park.find_by(id: params[:id])
     erb :"/parks/edit.html"

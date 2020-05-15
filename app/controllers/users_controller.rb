@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect to "/parks"
     else
-      redirect to "/failure"
+      erb :'/failures/login_failure.html'
     end
   end
 
@@ -20,7 +20,11 @@ class UsersController < ApplicationController
 
   post '/signup' do
     if params[:email] == "" || params[:password] == ""
-      redirect '/failure'
+      erb :'/failures/signup_missing_info.html' #needs at least an email and password
+    elsif Helpers.get_email(params)
+      erb :'/failures/signup_email_exists.html' #email already taken
+    elsif !Helpers.confirm_password(params)
+      erb :'/failures/signup_pass_missmatch.html'
     else
       @user = User.new(email: params[:email], 
       password: params[:password],

@@ -1,8 +1,14 @@
 <!DOCTYPE html>
+<html>
 <head>
-<title>Park Details</title>
+    <link rel="stylesheet" href="/stylesheets/navigation.css">
 </head>
-<body id="main_body" >
+<body>
+<div class="topnav">
+  <a class="active" href="/parks">Home</a>
+  <a href="/parks/new">New Park</a>
+  <a href="/logout">Logout</a>
+</div>
 		<h1><a>Park Details</a></h1>
 		<form action="/parks/<%= @park.id %>" method="POST">
   		<input type="hidden" name="_method" id="hidden" value="PATCH">

@@ -12,4 +12,18 @@ class Helpers
       !!current_user(session)
     end
 
+    def self.name(session)
+      self.current_user(session).first_name
+    end
+
+    def self.get_email(params)
+      User.all.exists?(email: params[:email])
+    end
+
+    def self.confirm_password(params)
+      params[:password] == params[:verify_password]
+    end
+
+
+
   end

@@ -1,17 +1,30 @@
-<h1>Visited Parks:</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/stylesheets/navigation.css">
+</head>
+<body>
+<div class="topnav">
+  <a class="active" href="/parks">Home</a>
+  <a href="/parks/new">New Park</a>
+  <a href="/logout">Logout</a>
+</div>
+
 <% if @parks.empty? %>
-    <h4>Looks like you haven't visited any national parks.</h4>
+    <h1>Welcome <%=Helpers.name(session)%>, click below to add your first park:</h1>
     <br>
     <a href='/parks/new'><button>Click to get started</button></a>
 <% else %>
+    <h1>Welcome <%=Helpers.name(session)%>, here are your visited parks:</h1><br>
     <% @parks.each do |p| %>
-    <h3><%= p.name %></h3> 
-    <a href='/parks/<%=p.id%>'><button>See Details</button></a> 
+    <h3><%= p.name %></h3><br>
+    <h4>Visited On: <%= p.date_visited %> </h4><br>
+    <a href='/parks/<%=p.id%>' class="myButton">See Details</a>
     <br>
-    <form action="/parks/<%=p.id%>/delete" method="POST">
-        <input type="hidden" name="_method" id="hidden" value="DELETE">
-        <input type='submit' value= 'Delete'>
-    </form>
-    ---------------------------------------------------
+  <h3>  --------------------------------------------------- </h3>
     <% end %>
 <% end %>
+
+
+</body>
+</html>

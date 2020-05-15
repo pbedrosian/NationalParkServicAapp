@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <title>
-    </title>
+    <link rel="stylesheet" href="/stylesheets/navigation.css">
 </head>
 <body>
+<div class="topnav">
+  <a class="active" href="/parks">Home</a>
+  <a href="/parks/new">New Park</a>
+  <a href="/logout">Logout</a>
+</div>
     <h1> <%=@park.name%></h1>
-    <br>
     <h3> City: <%=@park.city%> <h3>
-    <br>
     <h3> State: <%=@park.state%> <h3>
-    <br>
     <h3> Date Visited: <%=@park.date_visited %></h3>
     <br>
     <h4>Notes:</h4>
@@ -18,7 +19,12 @@
     <p> <%=@park.notes%> </p>
     <br>
     <br>
-    <a href='/parks/<%=@park.id%>/edit'><button>Edit Park Details</button></a> -- 
-    <a href='/parks'><button>Back to all parks</button></a>
-</body>
+    <a href='/parks/<%=@park.id%>/edit' class="myButton">Edit Park Details</a><br>
+    <br>
+    <form action="/parks/<%=@park.id%>/delete" method="POST">
+        <input type="hidden" name="_method" id="hidden" value="DELETE">
+        <input type='submit' value= 'Delete'>
+    </form>
+    </body>
+    
 </html>

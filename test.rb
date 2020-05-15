@@ -97,3 +97,9 @@
 
 	</body>
 </html>
+
+
+<form action="/parks/<%=p.id%>/delete" method="POST">
+<input type="hidden" name="_method" id="hidden" value="DELETE">
+<input type='submit' value= 'Delete'>
+</form>
