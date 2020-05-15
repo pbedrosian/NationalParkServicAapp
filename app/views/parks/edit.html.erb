@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="/stylesheets/navigation.css">
+	<link rel="stylesheet" href="/stylesheets/navigation.css">
+	<link rel="stylesheet" href="/stylesheets/form.css">
 </head>
 <body>
 <div class="topnav">
@@ -13,25 +14,20 @@
 		<form action="/parks/<%= @park.id %>" method="POST">
   		<input type="hidden" name="_method" id="hidden" value="PATCH">
 			<p>Enter the data from the National Park:</p>
-		<label>Park Name: </label>
 		<div>
-			<input id="name" name="name" value="<%= @park.name %>" class="element text medium" type="text" maxlength="255" value=""/> 
+			<input id="name" name="name" value="<%= @park.name %>"  type="text" maxlength="255" value=""/> 
 		</div> 
-		<label>City: </label>
 		<div>
-			<input id="city" name="city" value="<%= @park.city %>" class="element text medium" type="text" maxlength="255" value=""/> 
+			<input id="city" name="city" value="<%= @park.city %>" type="text" maxlength="255" value=""/> 
 		</div> 
-		<label>State: </label>
 		<div>
-			<input id="state" name="state" value="<%= @park.state %>" class="element text medium" type="text" maxlength="255" value=""/> 
+			<input id="state" name="state" value="<%= @park.state %>" type="text" maxlength="255" value=""/> 
 		</div> 
-		<label>Date Visited - MM-DD-YYYY: </label>
 		<div>
-			<input id="date_visited" name="date_visited" value="<%= @park.date_visited %>" class="element text medium" type="text" maxlength="255" value=""/> 
+			<input id="date_visited" name="date_visited" value="<%= @park.date_visited %>" type="text" maxlength="255" value=""/> 
 		</div> 
-		<label>Notes: </label>
 		<div>
-			<textarea id="notes" name="notes" class="element textarea medium"><%= @park.notes %></textarea> 
+			<input id="notes" name="notes"  type="text" placeholder="Notes:" value="<%= @park.notes %>"> 
 		<br>
 		<br>
 			<button type="submit" id="submit">Submit</button>

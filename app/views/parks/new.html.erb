@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="/stylesheets/navigation.css">
+	<link rel="stylesheet" href="/stylesheets/navigation.css">
+	<link rel="stylesheet" href="/stylesheets/form.css">
 </head>
 <body>
 <div class="topnav">
@@ -12,28 +13,23 @@
 		<h1><a>Park Details</a></h1>
 		<form  method="post" action="/parks">
 			<p>Enter the data from the National Park:</p>
-		<label>Park Name: </label>
 		<div>
-			<input id="name" name="name" class="element text medium" type="text" maxlength="255" value=""/> 
+			<input id="name" name="name" type="text" placeholder="Park Name:"> 
 		</div> 
-		<label>City: </label>
 		<div>
-			<input id="city" name="city" class="element text medium" type="text" maxlength="255" value=""/> 
+			<input id="city" name="city" type="text" placeholder="City:"> 
 		</div> 
-		<label>State: </label>
 		<div>
-			<input id="state" name="state" class="element text medium" type="text" maxlength="255" value=""/> 
+			<input id="state" name="state" type="text" placeholder="State:"> 
 		</div> 
-		<label>Date Visited - MM-DD-YYYY: </label>
 		<div>
-			<input id="date_visited" name="date_visited" class="element text medium" type="text" maxlength="255" value=""/> 
+			<input id="date_visited" name="date_visited" type="text" placeholder="Date Visited - MM-DD-YYYY:"> 
 		</div> 
-		<label>Notes: </label>
 		<div>
-			<textarea id="notes" name="notes" class="element textarea medium"></textarea> 
+			<input id="notes" name="notes"  type="text" placeholder="Notes:"> 
 		<br>
 		<br>
-			<button type="submit" id="submit">Submit</button>
+		<input type="submit" value="Submit Park">
 		</form>	
 	</body>
 </html>
