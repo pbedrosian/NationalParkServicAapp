@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="/stylesheets/navigation.css">
-	<link rel="stylesheet" href="/stylesheets/form.css">
+	<link rel="stylesheet" href="/stylesheets/page_styles.css">
 </head>
 <body>
 <div class="topnav">
   <a class="active" href="/parks">Home</a>
   <a href="/parks/new">New Park</a>
+  <a href="/account">Account</a>
   <a href="/logout">Logout</a>
 </div>
 		<h1><a>Park Details</a></h1>
@@ -30,7 +30,7 @@
 			<input id="notes" name="notes"  type="text" placeholder="Notes:" value="<%= @park.notes %>"> 
 		<br>
 		<br>
-			<button type="submit" id="submit">Submit</button>
+		<input type="submit" class="submit_button" value="Submit">
 		</form>	
 	</body>
 </html>

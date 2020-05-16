@@ -42,6 +42,15 @@ class UsersController < ApplicationController
     redirect '/'
   end
 
+  get '/account' do
+    if Helpers.is_logged_in?(session)
+    @user = Helpers.current_user(session)
+    erb :'/users/account.html'
+    else 
+      redirect '/'
+    end
+  end
+
   get '/failure' do
     erb :'/users/failure.html'
   end

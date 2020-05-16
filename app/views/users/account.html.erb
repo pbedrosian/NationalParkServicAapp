@@ -10,10 +10,13 @@
   <a href="/account">Account</a>
   <a href="/logout">Logout</a>
 </div>
-    <h1> Uhh Oh... </h1>
-    <h3> Looks like this park doesn't exist or belongs to another user. </h3><br>
-    <p> Click below to see all your parks </p>
-    <a href='/parks' class="myButton">See Your Parks</a><br>
-    
+<br>
+
+<h3> Name: <%= @user.first_name %> <%= @user.last_name %> </h3>
+<h3> Email: <%= @user.email %> </h3>
+<h3> Member Since: <%= @user.created_at %> </h3><br>
+<a href='/parks' class="myButton">Edit Account Details</a><br>
+
+
 </body>
 </html>

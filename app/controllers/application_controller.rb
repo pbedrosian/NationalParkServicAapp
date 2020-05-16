@@ -11,11 +11,16 @@ class ApplicationController < Sinatra::Base
   
 
   get "/" do
-    erb :welcome
+    if Helpers.is_logged_in?(session)
+      redirect '/parks'
+    else
+      erb :welcome
+    end
   end
 
-  post '/login' do
-
+  get '/test' do
+    erb :'/failures/login_general.html'
   end
+
 
 end

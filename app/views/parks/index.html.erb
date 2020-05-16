@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="/stylesheets/navigation.css">
+    <link rel="stylesheet" href="/stylesheets/page_styles.css">
 </head>
 <body>
 <div class="topnav">
   <a class="active" href="/parks">Home</a>
   <a href="/parks/new">New Park</a>
+  <a href="/account">Account</a>
   <a href="/logout">Logout</a>
 </div><br>
 
 <% if @parks.empty? %>
     <h1>Welcome <%=Helpers.name(session)%>, click below to add your first park:</h1>
     <br>
-    <a href='/parks/new'><button>Click to get started</button></a>
+    <a href='/parks/new' class="myButton">Click To Get Started</a><br>
 <% else %>
     <h1>Welcome <%=Helpers.name(session)%>, here are your visited parks:</h1><br>
     <% @parks.each do |p| %>

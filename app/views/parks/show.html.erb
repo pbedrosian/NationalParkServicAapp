@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="/stylesheets/navigation.css">
+    <link rel="stylesheet" href="/stylesheets/page_styles.css">
 </head>
 <body>
 <div class="topnav">
   <a class="active" href="/parks">Home</a>
   <a href="/parks/new">New Park</a>
+  <a href="/account">Account</a>
   <a href="/logout">Logout</a>
 </div>
+<br>
     <h1> <%=@park.name%></h1>
-    <h3> City: <%=@park.city%> <h3>
-    <h3> State: <%=@park.state%> <h3>
-    <h3> Date Visited: <%=@park.date_visited %></h3>
+    <h3> City: </h3> <%=@park.city%>
+    <h3> State: </h3> <%=@park.state%> 
+    <h3> Date Visited: </h3> <%=@park.date_visited %>
+    <br>
     <br>
     <h4>Notes:</h4>
     <br>
