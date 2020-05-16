@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="/stylesheets/page_styles.css">
+</head>
+<body>
+<div class="topnav">
+  <a class="active" href="/parks">Home</a>
+  <a href="/parks/new">New Park</a>
+  <a href="/account">Account</a>
+  <a href="/logout">Logout</a>
+</div><br>
+
+<h3>Sign Up</h3>
+<form action="/account/edit" method="POST">
+<input type="hidden" name="_method" id="hidden" value="PATCH">
+  <input type="text" name="first_name" placeholder="First Name:" value="<%= @user.first_name %>">
+  <br>
+  <input type="text" name="last_name" placeholder="Last Name:" value="<%= @user.last_name %>">
+  <br>
+  <input type="text" name="email" placeholder="Email:" value="<%= @user.email %>">
+  <br>
+  <input type="password" name="password" placeholder="New Password:">
+  <br>
+  <input type="password" name="verify_password" placeholder="Verify Password:">
+  <br>
+  <input type="submit" class="submit_button" value="Update Account">
+</form>
+</body>
+</html>

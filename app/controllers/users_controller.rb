@@ -51,6 +51,36 @@ class UsersController < ApplicationController
     end
   end
 
+  get '/account/edit' do
+    if Helpers.is_logged_in?(session)
+      @user = Helpers.current_user(session)
+      erb :'users/edit.account.html'
+    else
+      redirect '/'
+    end
+  end
+
+  patch '/account/edit' do
+    @user = Helpers.current_user(session)
+    binding.pry
+    @user.first_name = params[:first_name]
+    @user.last_name = params[:last_name]
+    if @user.email == params[:email]
+    elsif
+      
+      Helpers.get_email(params) 
+      erb :'/failures/edit.account.em.error.html'
+    elsif
+      @user.email = params[:email]
+    elsif Helpers.confirm_password(params)
+      @user.password = params[:password]
+      @user.save
+      redirect '/account'
+    else
+      erb :'/failures/change_pass.html'
+    end
+  end
+
   get '/failure' do
     erb :'/users/failure.html'
   end

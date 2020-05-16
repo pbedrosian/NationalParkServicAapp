@@ -2,6 +2,8 @@
 <html>
 <head>
     <link rel="stylesheet" href="/stylesheets/page_styles.css">
+    <link rel="stylesheet" href="/stylesheets/banner.css">
+
 </head>
 <body>
 <div class="topnav">
@@ -10,13 +12,17 @@
   <a href="/account">Account</a>
   <a href="/logout">Logout</a>
 </div><br>
+<div class="container">
+  <img src="images/forest_banner.jpg" alt="forest" width="100%" height="10%"">
+  <div class="centered"><h1>Welcome <%=Helpers.name(session)%></h1></div>
+</div>
 
 <% if @parks.empty? %>
-    <h1>Welcome <%=Helpers.name(session)%>, click below to add your first park:</h1>
+    <h1>Click below to add your first park:</h1>
     <br>
     <a href='/parks/new' class="myButton">Click To Get Started</a><br>
 <% else %>
-    <h1>Welcome <%=Helpers.name(session)%>, here are your visited parks:</h1><br>
+    <h1>Here are your visited parks:</h1><br>
     <% @parks.each do |p| %>
     <h3><%= p.name %></h3><br>
     <h4>Visited On: <%= p.date_visited %> </h4><br>

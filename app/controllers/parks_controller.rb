@@ -36,8 +36,13 @@ class ParksController < ApplicationController
   end
 
   get '/parks/:id/edit' do
-    @park = Park.find_by(id: params[:id])
-    erb :"/parks/edit.html"
+    park = Park.find_by(id: params[:id])
+    if !!park && park.user_id == session[:user_id]
+      @park = park
+      erb :"/parks/edit.html"
+    else
+      erb :'/failures/locate_park_error.html' 
+    end
   end
 
   patch "/parks/:id" do

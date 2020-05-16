@@ -27,7 +27,7 @@
 			<input id="date_visited" name="date_visited" value="<%= @park.date_visited %>" type="text" maxlength="255" value=""/> 
 		</div> 
 		<div>
-			<input id="notes" name="notes"  type="text" placeholder="Notes:" value="<%= @park.notes %>"> 
+			<textarea placeholder="Notes:" id="notes" name="notes" value=''> <%= @park.notes %></textarea>
 		<br>
 		<br>
 		<input type="submit" class="submit_button" value="Submit">

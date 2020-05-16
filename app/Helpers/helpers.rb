@@ -24,6 +24,8 @@ class Helpers
       params[:password] == params[:verify_password]
     end
 
+    def self.check_email(param)
+    end
 
 
   end
