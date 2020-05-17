@@ -3,15 +3,12 @@
 <head>
   <link rel="stylesheet" href="/stylesheets/signup.css">
   <link rel="stylesheet" href="/stylesheets/banner.css">
-
 </head>
 <body>
 <div class="container">
   <img src="images/test.jpg" alt="mountains" width="100%" height="10%" style="border-radius: 6px">
   <div class="centered"><h1>Welcome to your National Park Database</h1></div>
 </div>
-
-
 <h3>Sign Up</h3>
 <form action="/signup" method="POST">
   <input type="text" name="first_name" placeholder="First Name:">
@@ -24,8 +21,10 @@
   <br>
   <input type="password" name="verify_password" placeholder="Verify Password:">
   <br>
-  <input type="submit" class="myButton" value="Sign Up"><br>
+  <input type="submit" class="submit_button" value="Sign Up">
+</form>
 <em style="color:red;font-size:12px;" >
-Looks like this email already exists, please using another email or <a href='/login'>login </a></em>
+  Looks like this email already exists, please using another email or <a href='/login'>login </a>
+</em>
 </body>
 </html>

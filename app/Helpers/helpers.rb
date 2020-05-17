@@ -24,7 +24,10 @@ class Helpers
       params[:password] == params[:verify_password]
     end
 
-    def self.check_email(param)
+    def self.get_park(params,session)
+      index = 1
+      park_id = params[:id].to_i
+      parks = self.current_user(session).parks[park_id -= 1]
     end
 
 

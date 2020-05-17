@@ -22,5 +22,4 @@ class ApplicationController < Sinatra::Base
     erb :'/failures/login_general.html'
   end
 
-
 end

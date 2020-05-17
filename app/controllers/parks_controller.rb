@@ -2,19 +2,19 @@ class ParksController < ApplicationController
 
   get '/parks' do
     if Helpers.is_logged_in?(session)
-      @user = User.find_by(id: session[:user_id])
+      @user = Helpers.current_user(session)
       @parks = @user.parks.all
+      erb :"/parks/index.html"
     else
-      redirect '/failure'
+      redirect '/'
     end
-    erb :"/parks/index.html"
   end
 
   get '/parks/new' do
     if Helpers.is_logged_in?(session)
       erb :"/parks/new.html"
     else
-      redirect '/failure'
+      redirect '/'
     end
   end
 
@@ -26,22 +26,26 @@ class ParksController < ApplicationController
   end
 
   get '/parks/:id' do
-    park = Park.find_by(id: params[:id])
-    if !!park && park.user_id == session[:user_id]
-      @park = park
-      erb :"/parks/show.html"
-    else
-     erb :'/failures/locate_park_error.html' 
+    if Helpers.is_logged_in?(session)
+      if @park = Helpers.get_park(params,session)
+        erb :"/parks/show.html"
+      else
+        erb :'/failures/locate_park_error.html' 
+      end
+    else 
+      redirect '/'
     end
   end
 
   get '/parks/:id/edit' do
-    park = Park.find_by(id: params[:id])
-    if !!park && park.user_id == session[:user_id]
-      @park = park
-      erb :"/parks/edit.html"
+    if Helpers.is_logged_in?(session)
+      if @park = Helpers.get_park(params,session)
+        erb :"/parks/edit.html"
+      else
+        erb :'/failures/locate_park_error.html'
+      end
     else
-      erb :'/failures/locate_park_error.html' 
+      redirect '/'
     end
   end
 
