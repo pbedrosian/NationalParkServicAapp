@@ -26,7 +26,7 @@
     <p> <%=@park.notes%> </p>
     <br>
     <br>
-    <a href='/parks/<%=@park.id%>/edit' class="myButton">Edit Park Details</a><br>
+    <a href='/parks/<%=params[:id]%>/edit' class="myButton">Edit Park Details</a><br>
     <form action="/parks/<%=@park.id%>/delete" method="POST">
         <input type="hidden" name="_method" id="hidden" value="DELETE">
         <input type='submit' class="delete_button" value= 'Delete Park'>

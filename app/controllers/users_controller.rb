@@ -38,26 +38,19 @@ class UsersController < ApplicationController
 
   get '/logout' do
     session.clear
-
     redirect '/'
   end
 
   get '/account' do
-    if Helpers.is_logged_in?(session)
+    redirect '/' if !(Helpers.is_logged_in?(session))
     @user = Helpers.current_user(session)
     erb :'/users/account.html'
-    else 
-      redirect '/'
-    end
   end
 
   get '/account/edit' do
-    if Helpers.is_logged_in?(session)
-      @user = Helpers.current_user(session)
-      erb :'users/edit.account.html'
-    else
-      redirect '/'
-    end
+    redirect '/' if !(Helpers.is_logged_in?(session))
+    @user = Helpers.current_user(session)
+    erb :'users/edit.account.html'
   end
 
   patch '/account/edit' do

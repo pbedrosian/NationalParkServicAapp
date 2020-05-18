@@ -14,3 +14,47 @@
     transform: translate(-50%, -50%);
     
   }
+  .button {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-70%, -50%);
+    background-color: white;
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    border-radius: 4px;
+    
+  }
+  .bottom-button {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-70%, -50%);
+    background-color: white;
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    border-radius: 4px;
+    
+  }
+
+  .myButton {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    border-radius: 4px;
+  }

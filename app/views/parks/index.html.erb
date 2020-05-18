@@ -22,10 +22,13 @@
     <a href='/parks/new' class="myButton">Click To Get Started</a><br>
 <% else %>
     <h1>Here are your visited parks:</h1><br>
-    <% @parks.each do |p| %>
-    <h3><%= p.name %></h3><br>
-    <h4>Visited On: <%= p.date_visited %> </h4><br>
-    <a href='/parks/<%=p.id%>' class="myButton">See Details</a>
+    <% @parks.each_with_index do |park, index| %>
+    <ol>
+      <li> <h3><%= park.name %></h3></li>
+      <li> <h4>Visited On: <%= park.date_visited %> </h4></li>
+      <li> <h4> <%=park.city%>, <%=park.state%> </h4> </li>
+    </ol><br>
+    <a href='/parks/<%=index + 1%>' class="myButton">See Details</a>
     <br>
   <h3>  --------------------------------------------------- </h3>
     <% end %>

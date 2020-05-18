@@ -11,7 +11,7 @@
   <a href="/logout">Logout</a>
 </div>
 		<h1><a>Park Details</a></h1>
-		<form action="/parks/<%= @park.id %>" method="POST">
+		<form action="/parks/<%=@id%>" method="POST">
   		<input type="hidden" name="_method" id="hidden" value="PATCH">
 			<p>Enter the data from the National Park:</p>
 		<div>
