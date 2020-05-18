@@ -32,7 +32,6 @@ class ParksController < ApplicationController
   end
 
   get '/parks/:id/edit' do
-    binding.pry
     redirect '/' if !(Helpers.is_logged_in?(session))
     @id = params[:id]
     @user = Helpers.current_user(session)

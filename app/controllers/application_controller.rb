@@ -17,9 +17,4 @@ class ApplicationController < Sinatra::Base
       erb :welcome
     end
   end
-
-  get '/test' do
-    erb :'/failures/login_general.html'
-  end
-
 end

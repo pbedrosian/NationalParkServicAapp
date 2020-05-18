@@ -55,23 +55,9 @@ class UsersController < ApplicationController
 
   patch '/account/edit' do
     @user = Helpers.current_user(session)
-    binding.pry
     @user.first_name = params[:first_name]
     @user.last_name = params[:last_name]
-    if @user.email == params[:email]
-    elsif
-      
-      Helpers.get_email(params) 
-      erb :'/failures/edit.account.em.error.html'
-    elsif
-      @user.email = params[:email]
-    elsif Helpers.confirm_password(params)
-      @user.password = params[:password]
-      @user.save
-      redirect '/account'
-    else
-      erb :'/failures/change_pass.html'
-    end
+    @user.save
   end
 
   get '/failure' do
