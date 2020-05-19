@@ -8,18 +8,18 @@ class ParksController < ApplicationController
   end
 
   get '/parks/new' do
-    if Helpers.is_logged_in?(session)
-      erb :"/parks/new.html"
-    else
-      redirect '/'
-    end
+    redirect '/' if !(Helpers.is_logged_in?(session))
+    erb :"/parks/new.html"
   end
 
   post '/parks' do
     user = Helpers.current_user(session)
-    park = user.parks.new(params)
-    park.save
+    @park = user.parks.new(params)
+    if @park.save
     redirect to "/parks/#{user.parks.count}"
+    else
+      erb :'/parks/new.error.html'
+    end
   end
 
   get '/parks/:id' do
@@ -49,8 +49,11 @@ class ParksController < ApplicationController
     @park.state = params[:state]
     @park.notes = params[:notes]
     @park.date_visited = params[:date_visited]
-    @park.save
-    redirect to "/parks/#{params[:id]}"
+    if @park.save
+      redirect to "/parks/#{params[:id]}"
+    else
+      erb :'/parks/edit.error.html'
+    end
   end
 
   delete "/parks/:id/delete" do
