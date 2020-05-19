@@ -71,6 +71,7 @@ class UsersController < ApplicationController
     @user.first_name = params[:first_name]
     @user.last_name = params[:last_name]
     @user.save
+    redirect '/account'
   end
 
   get '/failure' do

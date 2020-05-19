@@ -15,17 +15,22 @@
 		<form action="/parks/<%=@id%>/edit" method="POST">
   		<input type="hidden" name="_method" id="hidden" value="PATCH">
 			<p>Enter the data from the National Park:</p>
+			<% flash.each do |name, msg| %>
+				<div class="error">
+				<em style="color:red;font-size:12px;" > <%= msg %> </em>
+			  </div>
+			<% end %>
 		<div>
-			<input id="name" name="name" value="<%= @park.name %>"  type="text" maxlength="255" value=""/> 
+			<input id="name" name="name" value="<%= @park.name %>"  type="text" placeholder="Name:"/> 
 		</div> 
 		<div>
-			<input id="city" name="city" value="<%= @park.city %>" type="text" maxlength="255" value=""/> 
+			<input id="city" name="city" value="<%= @park.city %>" type="text" placeholder="City:"/>  
 		</div> 
 		<div>
-			<input id="state" name="state" value="<%= @park.state %>" type="text" maxlength="255" value=""/> 
+			<input id="state" name="state" value="<%= @park.state %>" type="text" placeholder="State:"/>  
 		</div> 
 		<div>
-			<input id="date_visited" name="date_visited" value="<%= @park.date_visited %>" type="text" maxlength="255" value=""/> 
+			<input id="date_visited" name="date_visited" value="<%= @park.date_visited %>" type="text" placeholder="Date Visited:"/>
 		</div> 
 		<div>
 			<textarea placeholder="Notes:" id="notes" name="notes" value=''> <%= @park.notes %></textarea>
