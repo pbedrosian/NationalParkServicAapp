@@ -11,6 +11,6 @@ class User < ActiveRecord::Base
                          :confirmation => true,
                          :length => {:within => 6..40},
                          :on => :update
-                         
+
     validates :email, uniqueness: true
 end

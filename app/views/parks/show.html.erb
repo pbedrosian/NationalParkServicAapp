@@ -31,6 +31,12 @@
         <input type="hidden" name="_method" id="hidden" value="DELETE">
         <input type='submit' class="delete_button" value= 'Delete Park'>
     </form>
+    <% if @park.errors.any? %>
+		<ul>
+			<% @park.errors.full_messages.each do |err| %>
+				<li> <em style="color:red;font-size:12px;" > <%= err %> </em></li>
+			<% end %>
+		</ul>
+		<% end %>
     </body>
-    
 </html>

@@ -42,7 +42,7 @@ class ParksController < ApplicationController
     end
   end
 
-  patch "/parks/:id" do
+  patch "/parks/:id/edit" do
     @park = Helpers.get_park(params,session)
     @park.name = params[:name]
     @park.city = params[:city]
@@ -50,9 +50,9 @@ class ParksController < ApplicationController
     @park.notes = params[:notes]
     @park.date_visited = params[:date_visited]
     if @park.save
-      redirect to "/parks/#{params[:id]}"
+      redirect "/parks/#{params[:id]}"
     else
-      erb :'/parks/edit.error.html'
+      redirect "/parks/#{params[:id]}/edit"
     end
   end
 

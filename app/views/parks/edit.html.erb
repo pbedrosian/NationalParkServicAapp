@@ -2,6 +2,7 @@
 <html>
 <head>
 	<link rel="stylesheet" href="/stylesheets/page_styles.css">
+	<link rel="stylesheet" href="/stylesheets/signup.css">
 </head>
 <body>
 <div class="topnav">
@@ -11,7 +12,7 @@
   <a href="/logout">Logout</a>
 </div>
 		<h1><a>Park Details</a></h1>
-		<form action="/parks/<%=@id%>" method="POST">
+		<form action="/parks/<%=@id%>/edit" method="POST">
   		<input type="hidden" name="_method" id="hidden" value="PATCH">
 			<p>Enter the data from the National Park:</p>
 		<div>
@@ -32,5 +33,12 @@
 		<br>
 		<input type="submit" class="submit_button" value="Submit">
 		</form>	
+        <% if @park.errors.any? %>
+		<ul>
+			<% @park.errors.full_messages.each do |err| %>
+				<li> <em style="color:red;font-size:12px;" > <%= err %> </em></li>
+			<% end %>
+		</ul>
+		<% end %>
 	</body>
 </html>
