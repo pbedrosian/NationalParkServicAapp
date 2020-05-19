@@ -1,8 +1,10 @@
 require './config/environment'
+require 'sinatra/flash'
 
 class ApplicationController < Sinatra::Base
 
   configure do
+    register Sinatra::Flash
     set :public_folder, 'public'
     set :views, 'app/views'
     enable :sessions
@@ -16,5 +18,10 @@ class ApplicationController < Sinatra::Base
     else
       erb :welcome
     end
+  end
+
+  get '/test' do
+    flash[:notice] = "Hooray, Flash is working!"
+    erb :test
   end
 end

@@ -15,6 +15,11 @@
 		<form action="/parks/<%=@id%>/edit" method="POST">
   		<input type="hidden" name="_method" id="hidden" value="PATCH">
 			<p>Enter the data from the National Park:</p>
+			<% flash.keys.each do |type| %>
+				<div data-alert class="flash <%= type %> alert-box radius">
+				  <%= flash[type] %>
+				</div>
+			  <% end %>
 		<div>
 			<input id="name" name="name" value="<%= @park.name %>"  type="text" maxlength="255" value=""/> 
 		</div> 
