@@ -52,7 +52,7 @@ class ParksController < ApplicationController
     if @park.save
       redirect "/parks/#{params[:id]}"
     else
-      flash[:notice] = "Hooray, Flash is working!"
+      flash[:danger] = "All fields need to be present. Please try again."
       redirect "/parks/#{params[:id]}/edit"
     end
   end
