@@ -18,6 +18,13 @@
 	<h1><a>Park Details</a></h1>
 		<form  method="POST" action="/parks">
 			<p>Enter the data from the National Park:</p>
+			<% if @park.errors.any? %>
+			<ul>
+				<% @park.errors.full_messages.each do |err| %>
+					<li> <em style="color:red;font-size:12px;" > <%= err %> </em></li>
+				<% end %>
+			</ul>
+			<% end %>
 		<div>
 			<input id="name" name="name" type="text" placeholder="Park Name:"> 
 		</div> 
@@ -36,12 +43,5 @@
 		<br>
 		<input type="submit" class="submit_button" value="Submit Park">
 		</form>	
-		<% if @park.errors.any? %>
-		<ul>
-			<% @park.errors.full_messages.each do |err| %>
-				<li> <em style="color:red;font-size:12px;" > <%= err %> </em></li>
-			<% end %>
-		</ul>
-		<% end %>
 	</body>
 </html>
