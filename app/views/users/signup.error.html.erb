@@ -25,5 +25,12 @@
 </form>
 <em style="color:black;font-size:12px;" >
 If you already have an account, <a href='/login'>login </a></em>
+<% if @user.errors.any? %>
+<ul>
+    <% @user.errors.full_messages.each do |err| %>
+        <li> <em style="color:red;font-size:12px;" > <%= err %> </em></li>
+    <% end %>
+</ul>
+<% end %>
 </body>
 </html>
