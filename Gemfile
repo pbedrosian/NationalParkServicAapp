@@ -12,6 +12,7 @@ gem 'pry'
 gem 'bcrypt'
 gem 'tux'
 gem 'sinatra-flash', '~> 0.3.0'
+gem 'httparty', '~> 0.13.7'
 
 group :test do
   gem 'rspec'
