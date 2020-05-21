@@ -3,10 +3,10 @@
 This National Park Service app is a unofficial application to allow user to track their visited parks. Users can create a personalized account, upload custom data on the park, edit, and delete. Full CRUD.
 
 ## Build With
-Ruby 2.5.5
-Sinatra and Active Record - Ruby frameworks used
-SQLITE3 - Relational databases used for development
-HTML5 & CSS
+* Ruby 2.5.5
+* Sinatra and Active Record - Ruby frameworks used
+* SQLITE3 - Relational databases used for development
+* HTML5 & CSS
 
 ## Installation
 
