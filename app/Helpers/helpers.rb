@@ -35,4 +35,8 @@ class Helpers
       user.parks.find_index {|obj| obj.id == params}
     end
 
+    def self.state(state)
+      API.info(state)
+    end
+
   end

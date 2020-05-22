@@ -19,4 +19,8 @@ class ApplicationController < Sinatra::Base
       erb :welcome
     end
   end
+
+  get '/test/:state' do
+    Helpers.state(params[:state])
+  end
 end

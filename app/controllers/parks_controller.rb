@@ -42,7 +42,7 @@ class ParksController < ApplicationController
     end
   end
 
-  patch "/parks/:id/edit" do
+  patch "/parks/:id" do
     @park = Helpers.get_park(params,session)
     @park.name = params[:name]
     @park.city = params[:city]
