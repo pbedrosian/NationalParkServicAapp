@@ -8,5 +8,6 @@ end
 use Rack::MethodOverride
 
 run ApplicationController
+use ExploresController
 use UsersController
 use ParksController

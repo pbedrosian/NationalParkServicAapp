@@ -5,6 +5,10 @@ class API < ActiveRecord::Base
         url = "https://developer.nps.gov/api/v1/parks?stateCode=#{state}&api_key=#{api_key}" 
         info = HTTParty.get(url)
         park = info["data"].map {|n| n["fullName"]}
-        binding.pry
+        @@all_parks << park
+    end
+
+    def self.clear_parks
+        @@all_parks.clear
     end
 end
