@@ -21,3 +21,5 @@ Parks get visited by (has_many) Visitors
 Need to add failure poages for signin and around the site. 
 
 need to add user name and password
+
+errors valid for one one http request 
